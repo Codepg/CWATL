@@ -1,0 +1,122 @@
+  <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КО | CWATL</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #C0FFFF;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        
+        .toggler__label::selection {
+            color: none;
+            background: skyblue;
+        }
+
+
+        .toggler {
+            padding: 5px;
+        }
+
+
+        /* Стили для заголовка блока, при нажатии на который появляется дополнительный блок */
+        .toggler__label {
+            display: block;
+            font-weight: bold;
+            cursor: pointer;
+            border: 1px solid #skyblue;
+            padding: 15px;
+            font-size: 1.1em;
+            background-color: skyblue;
+        }
+
+        /* скрытый блок позиционируется абсолютно, чтобы не оставлять пустое место */
+        .toggler__content-box  {
+            position: absolute;
+            transform: translate(9999px);
+            opacity: 0;  
+        }
+
+        /* скрываем checkbox */
+        .toggler__checkbox {
+            display: none;
+        }
+
+        
+        .toggler__checkbox:checked ~ .toggler__content-box {
+            display: block;
+            position: relative;
+
+            transition: opacity .5s linear;  
+            transform:translate(0);
+            opacity: 1;
+
+            margin-top:5px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            padding: 15px;
+            font-size: 1em;
+            background-color: #fff;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <div class="toggler">
+        <input type="checkbox" id="toggler__checkbox-id-1" class="toggler__checkbox">
+        <label for="toggler__checkbox-id-1" class="toggler__label">Серый</label>
+        <span class="toggler__content-box"
+      </span>
+     Ну тип картинка
+      
+    </div>
+
+    
+
+    <div class="toggler">
+        <input type="checkbox" id="toggler__checkbox-id-3" class="toggler__checkbox">
+        <label for="toggler__checkbox-id-3" class="toggler__label">Бурый</label>
+        <span class="toggler__content-box"><a href="https://imgbb.com/"><img src="картинка" alt="IMG-20210301-112137" border="0">
+        <a href="https://imgbb.com/"><img src="картинка" alt="IMG-20210301-112322" border="0"></a></a>
+        </span>
+    </div>
+
+  
+ 
+   <div class="toggler">
+        <input type="checkbox" id="toggler__checkbox-id-10" class="toggler__checkbox">
+        <label for="toggler__checkbox-id-10" class="toggler__label">Черно-белый</label>
+        <span class="toggler__content-box">Окрас
+        </span>
+    </div>
+    <div class="toggler">
+        <input type="checkbox" id="toggler__checkbox-id-11" class="toggler__checkbox">
+   <div class="toggler">
+        <input type="checkbox" id="toggler__checkbox-id-12" class="toggler__checkbox">
+        <label for="toggler__checkbox-id-12" class="toggler__label">Рыжий</label>
+        <span class="toggler__content-box">Окрас
+        </span>
+    </div>
+</body>
+</html>
+</body>
+</html>   
+</body>
+</html>
+</body>
+</html>
+</body>
+</html>
