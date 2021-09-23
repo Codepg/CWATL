@@ -42,8 +42,8 @@
         /* скрытый блок позиционируется абсолютно, чтобы не оставлять пустое место */
         .toggler__content-box  {
             position: absolute;
-            transform: translate(9999px);
-            opacity: 0;  
+            opacity: 0; 
+            z-index: 0;
         }
 
         /* скрываем checkbox */
@@ -68,35 +68,90 @@
             background-color: #fff;
         }
 
+        .form_radio_btn {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .form_radio_btn input[type=radio] {
+            display: none;
+        }
+        .form_radio_btn label {
+            display: inline-block;
+            cursor: pointer;
+            padding: 0px 15px;
+            line-height: 34px;
+            border: 1px solid #999;
+            border-radius: 6px;
+            user-select: none;
+        }
+         
+        /* Checked */
+        .form_radio_btn input[type=radio]:checked + label {
+            background: #ffe0a6;
+        }
+         
+        /* Hover */
+        .form_radio_btn label:hover {
+            color: #666;
+        }
+         
+ /*       div.result{
+            display: none;
+        }*/
 
+        .result img{
+            width: 100px;
+            height: 150px;
+        }
+        }
 
     </style>
 
 </head>
 <body>
-
     <div class="toggler">
         <input type="checkbox" id="toggler__checkbox-id-1" class="toggler__checkbox">
-        <label for="toggler__checkbox-id-1" class="toggler__label">Серый</label>
-        <span class="toggler__content-box"
-      </span>
-     Ну тип картинка
+        <label for="toggler__checkbox-id-1" class="toggler__label">Выбери цвет</label>
+        <span class="toggler__content-box">
+<form name="color">
+    <div class="form_radio_btn">
+        <input id="radio-1" type="radio" name="radio" value="белый">
+        <label for="radio-1">Белый</label>
+    </div>
+     
+    <div class="form_radio_btn">
+        <input id="radio-2" type="radio" name="radio" value="бурый">
+        <label for="radio-2">Бурый</label>
+    </div>
+     
+    <div class="form_radio_btn">
+        <input id="radio-3" type="radio" name="radio" value="черно-белый">
+        <label for="radio-3">Черно-Белый</label>
+    </div>
+     
+    <div class="form_radio_btn">
+        <input id="radio-4" type="radio" name="radio" value="рыжий">
+        <label for="radio-4">Рыжий</label>
+    </div>    
+</form>
+
+        </span>
+     
       
     </div>
 
     
 
-    <div class="toggler">
+   <!--  <div class="toggler">
         <input type="checkbox" id="toggler__checkbox-id-3" class="toggler__checkbox">
         <label for="toggler__checkbox-id-3" class="toggler__label">Бурый</label>
         <span class="toggler__content-box"><a href="https://imgbb.com/"><img src="картинка" alt="IMG-20210301-112137" border="0">
         <a href="https://imgbb.com/"><img src="картинка" alt="IMG-20210301-112322" border="0"></a></a>
         </span>
-    </div>
+    </div> -->
 
-  
- 
-   <div class="toggler">
+
+<!--    <div class="toggler">
         <input type="checkbox" id="toggler__checkbox-id-10" class="toggler__checkbox">
         <label for="toggler__checkbox-id-10" class="toggler__label">Черно-белый</label>
         <span class="toggler__content-box">Окрас
@@ -109,14 +164,48 @@
         <label for="toggler__checkbox-id-12" class="toggler__label">Рыжий</label>
         <span class="toggler__content-box">Окрас
         </span>
-    </div>
+    </div> -->
+
+    <button class="resultBtn" onclick="resultCat()"><h3>Хочу результат!</h3></button>
+
+<!-- <div class="result">
+    <img src="https://sun9-19.userapi.com/impg/-NXAthEtnqbJiF_t8-Mi6MlSjkptmYMJdD-W8A/j4POpLKYZeY.jpg?size=217x320&quality=96&sign=0cf6ae8889ae78ada20aced13d9fd9a4&type=album" alt="">
+</div> -->
+
+<div class="result">
+    <p></p>
+</div>
+
 </body>
+
+<script>
+    function resultCat() {
+       let cat = {}
+        let form = document.querySelector('form[name="color"]')
+         for (var i = 0; i < (form.elements.length)--; i++) {
+              if(form.elements[i].checked == true){
+                cat.color = form.elements[i].value;
+                console.log(cat);
+                break}
+}
+
+    switch(cat.color){
+        case 'белый':
+    document.querySelector('.result').innerHTML = '<p>у твоего кота '+cat.color+' цвет!</p> <img src="https://sun9-19.userapi.com/impg/-NXAthEtnqbJiF_t8-Mi6MlSjkptmYMJdD-W8A/j4POpLKYZeY.jpg?size=217x320&quality=96&sign=0cf6ae8889ae78ada20aced13d9fd9a4&type=album" alt="белый">';
+        break;
+        case 'бурый':
+        document.querySelector('.result').innerHTML = '<p>у твоего кота '+cat.color+' цвет!</p> <img src="https://sun9-30.userapi.com/impg/joo9GD4-k42J8kpyQqBTRd6V_ZEBil8tBpt9Wg/PdrG-CHMf3k.jpg?size=100x150&quality=96&sign=9c925d2157457299ea84aab2f09ca2a0&type=album" alt="бурый">';
+        break;
+        case 'черно-белый':
+         document.querySelector('.result').innerHTML = '<p>у твоего кота '+cat.color+' цвет!</p> <img src="https://sun9-41.userapi.com/impg/ROhGALSvKMV4h0aG1NoJewvTDjTnTq2mdCS9xg/08lIXXBLztk.jpg?size=985x1064&quality=96&sign=0246983e5d8d0d35b18ddce02b322dc1&type=album" alt="черно-белый">';
+         break;
+         case 'рыжий':
+         document.querySelector('.result').innerHTML = '<p>у твоего кота '+cat.color+' цвет!</p> <img src="https://sun9-24.userapi.com/impg/6O-wfl3IKts2ZPQDxqH_ivORn6R7qra32MblVA/T0AZ73_KTo8.jpg?size=100x154&quality=96&sign=6f0576891108509e994fc2ba049244fd&type=album" alt="рыжий">';
+    }
+
+return cat
+}
+</script>
+
 </html>
-</body>
-</html>   
-</body>
-</html>
-</body>
-</html>
-</body>
-</html>
+
