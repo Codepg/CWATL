@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>КО | CWATL</title>
 
-    <style>
+<style>
 
         * {
             box-sizing: border-box;
@@ -100,85 +100,152 @@
         }*/
 
         .result img{
-            width: 100px;
-            height: 150px;
-        }
+            width: 350px;
+            height: 350px;
         }
 
-    </style>
+        #body{
+            position: absolute;
+            z-index: 1;
+            width: 360px;
+        }
+
+        #hAt{
+            width: 360px;
+        }
+
+        
+</style>
 
 </head>
 <body>
+    <!-- Выбор цвета -->
     <div class="toggler">
-        <input type="checkbox" id="toggler__checkbox-id-1" class="toggler__checkbox">
+        <input type="checkbox" id="toggler__checkbox-id-1" class="toggler__checkbox" name="colors">
         <label for="toggler__checkbox-id-1" class="toggler__label">Выбери цвет</label>
         <span class="toggler__content-box">
-<form name="color">
-    <div class="form_radio_btn">
-        <input id="radio-1" type="radio" name="radio" value="белый">
-        <label for="radio-1">Белый</label>
-    </div>
-     
-    <div class="form_radio_btn">
-        <input id="radio-2" type="radio" name="radio" value="бурый">
-        <label for="radio-2">Бурый</label>
-    </div>
-     
-    <div class="form_radio_btn">
-        <input id="radio-3" type="radio" name="radio" value="черно-белый">
-        <label for="radio-3">Черно-Белый</label>
-    </div>
-     
-    <div class="form_radio_btn">
-        <input id="radio-4" type="radio" name="radio" value="рыжий">
-        <label for="radio-4">Рыжий</label>
-    </div>    
-</form>
-
-        </span>
-     
-      
-    </div>
-
-    
-
-   <!--  <div class="toggler">
-        <input type="checkbox" id="toggler__checkbox-id-3" class="toggler__checkbox">
-        <label for="toggler__checkbox-id-3" class="toggler__label">Бурый</label>
-        <span class="toggler__content-box"><a href="https://imgbb.com/"><img src="картинка" alt="IMG-20210301-112137" border="0">
-        <a href="https://imgbb.com/"><img src="картинка" alt="IMG-20210301-112322" border="0"></a></a>
-        </span>
-    </div> -->
-
-
-<!--    <div class="toggler">
-        <input type="checkbox" id="toggler__checkbox-id-10" class="toggler__checkbox">
-        <label for="toggler__checkbox-id-10" class="toggler__label">Черно-белый</label>
-        <span class="toggler__content-box">Окрас
+            <form name="color">
+                <div class="form_radio_btn">
+                    <input id="radio-1" type="radio" name="radio" value="white" class="color" onclick="createColor('white')">
+                    <label for="radio-1">Белый</label>
+                </div>
+                 
+                <div class="form_radio_btn">
+                    <input id="radio-2" type="radio" name="radio" value="brown" class="color" onclick="createColor('brown')">
+                    <label for="radio-2">Бурый</label>
+                </div>
+                 
+                <div class="form_radio_btn">
+                    <input id="radio-3" type="radio" name="radio" value="blue" class="color" onclick="createColor('blue')">
+                    <label for="radio-3">Синий</label>
+                </div>
+                 
+                <div class="form_radio_btn">
+                    <input id="radio-4" type="radio" name="radio" value="gray" class="color" onclick="createColor('gray')"> 
+                    <label for="radio-4">Серый</label>
+                </div>    
+            </form>
         </span>
     </div>
+
+    <!-- Выбор ушек и хвоста -->
     <div class="toggler">
-        <input type="checkbox" id="toggler__checkbox-id-11" class="toggler__checkbox">
-   <div class="toggler">
-        <input type="checkbox" id="toggler__checkbox-id-12" class="toggler__checkbox">
-        <label for="toggler__checkbox-id-12" class="toggler__label">Рыжий</label>
-        <span class="toggler__content-box">Окрас
+        <input type="checkbox" id="toggler__checkbox-id-2" class="toggler__checkbox" name="earsNtales">
+        <label for="toggler__checkbox-id-2" class="toggler__label">Выбери лапы и хвост</label>
+        <span class="toggler__content-box">
+            <form name="hearsNtales">
+            <div class="form_radio_btn">
+                <input id="radio-5" type="radio" name="radio" value="standart" class="earsNtales" onclick="createHaT('standart')">
+                <label for="radio-5">Стандартно</label>
+            </div>
+             
+            <div class="form_radio_btn">
+                <input id="radio-6" type="radio" name="radio" value="short" class="earsNtales" onclick="createHaT('short')">
+                <label for="radio-6">Куцый</label>
+            </div>    
+            </form>
         </span>
-    </div> -->
+    </div>
 
-    <button class="resultBtn" onclick="resultCat()"><h3>Хочу результат!</h3></button>
+
+<!--     <button class="resultBtn" onclick="resultCat()"><h3>Хочу результат!</h3></button> -->
+
+
+<!-- котик(образ меняется по мере выбора аттрибутов) -->
+<div id="cat">
+        <img id="body" src="https://psv4.userapi.com/c520036/u612432231/docs/d27/8c412d87a5bc/sketch-1632583124362.png?extra=kbemL0HzDkCSP1-mCXmri54enxrsLAaxg-Hv4kip1p78ebn8qOGs8T15x4KmS-mkQhMipMyxROPCqDJbwF2qgI87Ef5Ah9V-T7g9bMTTJD1jkurJRUEZ1M_T3iod7x7PGrpA1J1CLp9LhU9WisU2qcCd" alt="">
+    <img id="hAt" src="https://psv4.userapi.com/c505536/u612432231/docs/d15/d336145decd9/sketch-1632658701998.png?extra=EViLIeIxsEGcsKm1RHBa8YeXb1JKl4KkaEfgeBTPWTKxeX9Lqdkp-kYqZQAZVbDzQHQYSPXzsdB8cmZxJb55BbF3Xmo-ISMAqZ4G7JP9SBq5ziAioiOqfNiV4DrUqW2x2sHYL2ORrNIWR4L0djfRviQ_" alt="">
+</div>
+
 
 <!-- <div class="result">
-    <img src="https://sun9-19.userapi.com/impg/-NXAthEtnqbJiF_t8-Mi6MlSjkptmYMJdD-W8A/j4POpLKYZeY.jpg?size=217x320&quality=96&sign=0cf6ae8889ae78ada20aced13d9fd9a4&type=album" alt="">
-</div> -->
-
-<div class="result">
     <p></p>
-</div>
+</div> -->
 
 </body>
 
 <script>
+    // Новый вариант(по мере выбора)
+
+//инициализация частей тела
+
+let colors = {
+    'white': '',
+    'brown': '',
+    'blue': '',
+    'gray': ''
+}
+
+let earsNtales = {
+    standart: 'https://psv4.userapi.com/c520036/u612432231/docs/d34/d66c9e328579/sketch-1632583115449.png?extra=X5cXjX0mgggseAgsUERFtfQdA4rA1bDJpuvvOZVf4W2WHsnElYRajaea0bB2eMy8Q9GZrnY7smOgYgr1mfPi4LeBl2PhK6AmeBQqgEtjLkgh7N2ogzLUozfL3aFXpxWrNCPSEyNQG2Gr2eWGYIeBt_H6_w',
+    short: 'https://psv4.userapi.com/c505536/u612432231/docs/d15/db98e17cc340/sketch-1632658701998.png?extra=2ocikqefdpUuOpzGvNd03UD9Rx6qtr8TLwWtqnaD29Vl1ujvUPJLHM3o-1H_YQjI8HD7xkS8JHlAiFcgBLQ779qPcG3vE1AhOCLsmbwLO_ZWkml8H_i-vKssKTtg6L2S6UQmt3QIhnIOSuRy6Di6zKELpg'
+}
+// инициализая котика
+
+let cat = {
+    body: colors.white,
+    earsNtales: earsNtales.standart
+}
+
+//вариант с подстановкой(временный)
+
+function createColor(color){
+cat.body = colors.color;
+// document.querySelector('#body').src = cat.body = colors.color
+}
+
+function createHaT(type){
+cat.earsNtales = earsNtales[type];
+document.querySelector('#hAt').src = cat.earsNtales
+// document.querySelector('#body').src = cat.body = colors.color
+}
+
+//сам механизм
+
+//заморожено(временно вариант с подстановкой)
+
+// let togglers = {
+//     colors: false,
+//     earsNtales: false,
+// }
+
+// function toggle(){
+//     let labels = document.querySelectorAll('label[for*=radio-]')
+//     let target = event.target.name;
+//     let clicked = togglers[target];
+
+
+//     for (var i = 0; i < (labels.length)--; i++) {
+//         labels[i].addEventListener('click',(e) => {
+//          let label = this.event.target.htmlFor;
+//          console.log(label);
+//         });
+//     }  
+// }
+
+
+   // Старый вариант(по кнопке) 
+    /*
     function resultCat() {
        let cat = {}
         let form = document.querySelector('form[name="color"]')
@@ -187,25 +254,25 @@
                 cat.color = form.elements[i].value;
                 console.log(cat);
                 break}
-}
+         }
 
     switch(cat.color){
         case 'белый':
-    document.querySelector('.result').innerHTML = '<p>у твоего кота '+cat.color+' цвет!</p> <img src="https://sun9-19.userapi.com/impg/-NXAthEtnqbJiF_t8-Mi6MlSjkptmYMJdD-W8A/j4POpLKYZeY.jpg?size=217x320&quality=96&sign=0cf6ae8889ae78ada20aced13d9fd9a4&type=album" alt="белый">';
+    document.querySelector('.result').innerHTML = '<p>у твоего кота '+cat.color+' цвет!</p> <img src="https://psv4.userapi.com/c534536/u626585624/docs/d24/a7073af8f0f1/Bez_nazvania293_20210923211348.png?эsize=217x320&quality=96&sign=0cf6ae8889ae78ada20aced13d9fd9a4&type=album" alt="белый">';
         break;
         case 'бурый':
         document.querySelector('.result').innerHTML = '<p>у твоего кота '+cat.color+' цвет!</p> <img src="https://sun9-30.userapi.com/impg/joo9GD4-k42J8kpyQqBTRd6V_ZEBil8tBpt9Wg/PdrG-CHMf3k.jpg?size=100x150&quality=96&sign=9c925d2157457299ea84aab2f09ca2a0&type=album" alt="бурый">';
         break;
-        case 'черно-белый':
-         document.querySelector('.result').innerHTML = '<p>у твоего кота '+cat.color+' цвет!</p> <img src="https://sun9-41.userapi.com/impg/ROhGALSvKMV4h0aG1NoJewvTDjTnTq2mdCS9xg/08lIXXBLztk.jpg?size=985x1064&quality=96&sign=0246983e5d8d0d35b18ddce02b322dc1&type=album" alt="черно-белый">';
+        case 'синий':
+         document.querySelector('.result').innerHTML = '<p>у твоего кота '+cat.color+' цвет!</p> <img src="https://sun9-41.userapi.com/impg/ROhGALSvKMV4h0aG1NoJewvTDjTnTq2mdCS9xg/08lIXXBLztk.jpg?size=985x1064&quality=96&sign=0246983e5d8d0d35b18ddce02b322dc1&type=album" alt="синий">';
          break;
-         case 'рыжий':
-         document.querySelector('.result').innerHTML = '<p>у твоего кота '+cat.color+' цвет!</p> <img src="https://sun9-24.userapi.com/impg/6O-wfl3IKts2ZPQDxqH_ivORn6R7qra32MblVA/T0AZ73_KTo8.jpg?size=100x154&quality=96&sign=6f0576891108509e994fc2ba049244fd&type=album" alt="рыжий">';
+         case 'серый':
+         document.querySelector('.result').innerHTML = '<p>у твоего кота '+cat.color+' цвет!</p> <img src="https://sun9-24.userapi.com/impg/6O-wfl3IKts2ZPQDxqH_ivORn6R7qra32MblVA/T0AZ73_KTo8.jpg?size=100x154&quality=96&sign=6f0576891108509e994fc2ba049244fd&type=album" alt="серый">';
     }
 
-return cat
-}
+    return cat
+    }
+    */
 </script>
 
 </html>
-
