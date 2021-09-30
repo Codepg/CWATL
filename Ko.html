@@ -14,6 +14,8 @@
         body {
             background-color: #C0FFFF;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: 50%;
+            margin: 0 auto;
         }
 
         
@@ -25,6 +27,7 @@
 
         .toggler {
             padding: 5px;
+            text-align: center;
         }
 
 
@@ -99,9 +102,10 @@
             display: none;
         }*/
 
-        .result img{
+        #cat{
             width: 350px;
             height: 350px;
+            display: inline;
         }
 
         #body{
@@ -110,8 +114,28 @@
             width: 360px;
         }
 
-        #hAt{
+        #eAt{
             width: 360px;
+        }
+
+        .info tr, td{
+            display: block;
+        }
+
+        .info{
+            position: relative;
+            top: -250px;
+            right: -350px;
+        }
+
+        @media (max-width: 720px) {
+            body{
+                width: 100%;
+            }
+
+            .info{
+                position: static;
+            }
         }
 
         
@@ -155,27 +179,43 @@
         <span class="toggler__content-box">
             <form name="hearsNtales">
             <div class="form_radio_btn">
-                <input id="radio-5" type="radio" name="radio" value="standart" class="earsNtales" onclick="createHaT('standart')">
+                <input id="radio-5" type="radio" name="radio" value="standart" class="earsNtales" onclick="createEaT('standart')">
                 <label for="radio-5">Стандартно</label>
             </div>
              
             <div class="form_radio_btn">
-                <input id="radio-6" type="radio" name="radio" value="short" class="earsNtales" onclick="createHaT('short')">
+                <input id="radio-6" type="radio" name="radio" value="short" class="earsNtales" onclick="createEaT('short')">
                 <label for="radio-6">Куцый</label>
             </div>    
             </form>
         </span>
     </div>
 
+    <div class="result">
+        <!-- котик(образ меняется по мере выбора аттрибутов) -->
+        <div id="cat">
+            <img id="body" src="https://psv4.userapi.com/c520036/u612432231/docs/d27/8c412d87a5bc/sketch-1632583124362.png?extra=kbemL0HzDkCSP1-mCXmri54enxrsLAaxg-Hv4kip1p78ebn8qOGs8T15x4KmS-mkQhMipMyxROPCqDJbwF2qgI87Ef5Ah9V-T7g9bMTTJD1jkurJRUEZ1M_T3iod7x7PGrpA1J1CLp9LhU9WisU2qcCd" alt="">
+            <img id="eAt" src="https://psv4.userapi.com/c505536/u612432231/docs/d15/d336145decd9/sketch-1632658701998.png?extra=EViLIeIxsEGcsKm1RHBa8YeXb1JKl4KkaEfgeBTPWTKxeX9Lqdkp-kYqZQAZVbDzQHQYSPXzsdB8cmZxJb55BbF3Xmo-ISMAqZ4G7JP9SBq5ziAioiOqfNiV4DrUqW2x2sHYL2ORrNIWR4L0djfRviQ_" alt="">
+        </div>        
+    </div>
+
+    <div class="info">
+        <table>
+            <th><h2>Вами были выбраны следующие параметры:</h2></th>
+            <td class="colorInfo">
+                <p>Цвет: </p>
+            </td>
+            <td class="eAtInfo">
+                <p>Вид лап и хвоста:</p>
+            </td>
+        </table>
+    </div>
+
 
 <!--     <button class="resultBtn" onclick="resultCat()"><h3>Хочу результат!</h3></button> -->
 
 
-<!-- котик(образ меняется по мере выбора аттрибутов) -->
-<div id="cat">
-        <img id="body" src="https://psv4.userapi.com/c520036/u612432231/docs/d27/8c412d87a5bc/sketch-1632583124362.png?extra=kbemL0HzDkCSP1-mCXmri54enxrsLAaxg-Hv4kip1p78ebn8qOGs8T15x4KmS-mkQhMipMyxROPCqDJbwF2qgI87Ef5Ah9V-T7g9bMTTJD1jkurJRUEZ1M_T3iod7x7PGrpA1J1CLp9LhU9WisU2qcCd" alt="">
-    <img id="hAt" src="https://psv4.userapi.com/c505536/u612432231/docs/d15/d336145decd9/sketch-1632658701998.png?extra=EViLIeIxsEGcsKm1RHBa8YeXb1JKl4KkaEfgeBTPWTKxeX9Lqdkp-kYqZQAZVbDzQHQYSPXzsdB8cmZxJb55BbF3Xmo-ISMAqZ4G7JP9SBq5ziAioiOqfNiV4DrUqW2x2sHYL2ORrNIWR4L0djfRviQ_" alt="">
-</div>
+
 
 
 <!-- <div class="result">
@@ -212,13 +252,28 @@ let cat = {
 function createColor(color){
 cat.body = colors.color;
 // document.querySelector('#body').src = cat.body = colors.color
+document.querySelector('.colorInfo').innerHTML = '<p>Цвет: '+color+'</p>'
 }
 
-function createHaT(type){
+function createEaT(type){
 cat.earsNtales = earsNtales[type];
-document.querySelector('#hAt').src = cat.earsNtales
-// document.querySelector('#body').src = cat.body = colors.color
+document.querySelector('#eAt').src = cat.earsNtales
+// document.querySelector('#body').src = cat.body = colors.earsNtles
+document.querySelector('.eAtInfo').innerHTML = '<p>Вид лап и хвоста: '+type+'</p>'
 }
+
+function inCat(){
+    createColor('white');
+    createEaT('standart')
+
+    document.querySelector('input[type=radio][value=white]').setAttribute('checked', '')
+    document.querySelector('input[type=radio][value=standart]').setAttribute('checked', '')
+}
+
+//инициализация котика в стандартном виде
+
+    inCat();
+
 
 //сам механизм
 
