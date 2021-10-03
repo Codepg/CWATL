@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>img[alt="www.000webhost.com"] {display: none;}</style>
     <title>КО | CWATL</title>
 
 <style>
@@ -110,7 +111,6 @@
 
         #body{
             position: absolute;
-            z-index: 1;
             width: 360px;
         }
 
@@ -123,9 +123,15 @@
         }
 
         .info{
-            position: relative;
-            top: -250px;
-            right: -350px;
+            width: 500px;
+        }
+
+        .result{
+            width: 360px;
+        }
+
+        .result-wrap{
+            display: flex;
         }
 
         @media (max-width: 720px) {
@@ -133,8 +139,12 @@
                 width: 100%;
             }
 
+            .result-wrap{
+                display: block;
+            }
+
             .info{
-                position: static;
+                width: 100%;
             }
         }
 
@@ -191,25 +201,29 @@
         </span>
     </div>
 
-    <div class="result">
-        <!-- котик(образ меняется по мере выбора аттрибутов) -->
-        <div id="cat">
-            <img id="body" src="https://psv4.userapi.com/c520036/u612432231/docs/d27/8c412d87a5bc/sketch-1632583124362.png?extra=kbemL0HzDkCSP1-mCXmri54enxrsLAaxg-Hv4kip1p78ebn8qOGs8T15x4KmS-mkQhMipMyxROPCqDJbwF2qgI87Ef5Ah9V-T7g9bMTTJD1jkurJRUEZ1M_T3iod7x7PGrpA1J1CLp9LhU9WisU2qcCd" alt="">
-            <img id="eAt" src="https://psv4.userapi.com/c505536/u612432231/docs/d15/d336145decd9/sketch-1632658701998.png?extra=EViLIeIxsEGcsKm1RHBa8YeXb1JKl4KkaEfgeBTPWTKxeX9Lqdkp-kYqZQAZVbDzQHQYSPXzsdB8cmZxJb55BbF3Xmo-ISMAqZ4G7JP9SBq5ziAioiOqfNiV4DrUqW2x2sHYL2ORrNIWR4L0djfRviQ_" alt="">
+    <div class="result-wrap">
+        <div class="result">
+            <!-- котик(образ меняется по мере выбора аттрибутов) -->
+            <div id="cat">
+                <img id="body" src="" alt="">
+                <img id="eAt" src="" alt="">
+            </div>        
+        </div>
+
+        <div class="info">
+            <table>
+                <th><h2>Вами были выбраны следующие параметры:</h2></th>
+                <td class="colorInfo">
+                    <p>Цвет: </p>
+                </td>
+                <td class="eAtInfo">
+                    <p>Вид лап и хвоста:</p>
+                </td>
+            </table>
         </div>        
     </div>
 
-    <div class="info">
-        <table>
-            <th><h2>Вами были выбраны следующие параметры:</h2></th>
-            <td class="colorInfo">
-                <p>Цвет: </p>
-            </td>
-            <td class="eAtInfo">
-                <p>Вид лап и хвоста:</p>
-            </td>
-        </table>
-    </div>
+
 
 
 <!--     <button class="resultBtn" onclick="resultCat()"><h3>Хочу результат!</h3></button> -->
@@ -230,15 +244,15 @@
 //инициализация частей тела
 
 let colors = {
-    'white': '',
-    'brown': '',
-    'blue': '',
-    'gray': ''
+    'white': 'assets/body.png',
+    'brown': 'assets/body.png',
+    'blue': 'assets/body.png',
+    'gray': 'assets/body.png'
 }
 
 let earsNtales = {
-    standart: 'https://psv4.userapi.com/c520036/u612432231/docs/d34/d66c9e328579/sketch-1632583115449.png?extra=X5cXjX0mgggseAgsUERFtfQdA4rA1bDJpuvvOZVf4W2WHsnElYRajaea0bB2eMy8Q9GZrnY7smOgYgr1mfPi4LeBl2PhK6AmeBQqgEtjLkgh7N2ogzLUozfL3aFXpxWrNCPSEyNQG2Gr2eWGYIeBt_H6_w',
-    short: 'https://psv4.userapi.com/c505536/u612432231/docs/d15/db98e17cc340/sketch-1632658701998.png?extra=2ocikqefdpUuOpzGvNd03UD9Rx6qtr8TLwWtqnaD29Vl1ujvUPJLHM3o-1H_YQjI8HD7xkS8JHlAiFcgBLQ779qPcG3vE1AhOCLsmbwLO_ZWkml8H_i-vKssKTtg6L2S6UQmt3QIhnIOSuRy6Di6zKELpg'
+    standart: 'assets/eat-std.png',
+    short: 'assets/eat-short.png'
 }
 // инициализая котика
 
@@ -250,15 +264,14 @@ let cat = {
 //вариант с подстановкой(временный)
 
 function createColor(color){
-cat.body = colors.color;
-// document.querySelector('#body').src = cat.body = colors.color
+cat.body = colors[color];
+document.querySelector('#body').src = cat.body
 document.querySelector('.colorInfo').innerHTML = '<p>Цвет: '+color+'</p>'
 }
 
 function createEaT(type){
 cat.earsNtales = earsNtales[type];
 document.querySelector('#eAt').src = cat.earsNtales
-// document.querySelector('#body').src = cat.body = colors.earsNtles
 document.querySelector('.eAtInfo').innerHTML = '<p>Вид лап и хвоста: '+type+'</p>'
 }
 
